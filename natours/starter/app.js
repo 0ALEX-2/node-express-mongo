@@ -123,7 +123,7 @@ app
   .patch(updateUser)
   .delete(deleteUser);
 
-//--------------Start----------------
+//---------------------Start---------------------
 
 app.listen(port, (err, data) => {
   console.log(`App is running on port ${port} ...`);
