@@ -13,7 +13,6 @@ app.use((req, res, next) => {
 });
 app.use(morgan('dev'));
 
-//-----------Controllers------------------------
 
 //-----------------Routers-----------------
 
@@ -26,6 +25,5 @@ app.use(morgan('dev'));
 app.use('/api/v1/tours', tourRouter);
 app.use('/api/v1/user', userRouter);
 
-//---------------------Start---------------------
 
 module.exports = app;
