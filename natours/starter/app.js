@@ -3,8 +3,6 @@ const morgan = require('morgan');
 const tourRouter = require('./routes/tourRoutes');
 const userRouter = require('./routes/userRoutes');
 
-const port = 3000;
-
 const app = express();
 
 //--------------Middlewares-----------------------
@@ -26,10 +24,8 @@ app.use(morgan('dev'));
 // app.delete('/api/v1/tours/:id',deleteTour);
 
 app.use('/api/v1/tours', tourRouter);
-app.use('/api/v1/tours', userRouter);
+app.use('/api/v1/user', userRouter);
 
 //---------------------Start---------------------
 
-app.listen(port, (err, data) => {
-  console.log(`App is running on port ${port} ...`);
-});
+module.exports = app;
