@@ -10,10 +10,11 @@ exports.getAllTours = async (req, res) => {
     //Advance filtering
     let queryStr = JSON.stringify(queryObj);
     queryStr = queryStr.replace(/\b(gte|gt|lt|lte)\b/g, (match) => `$${match}`);
-    console.log(JSON.parse(queryStr));
+    // console.log(JSON.parse(queryStr));
 
+    const query = Tour.find(JSON.parse(queryStr));
     // const tours = await Tour.find(req.query);
-    const tours = await Tour.find(queryStr);
+    const tours = await query;
 
     res.status(200).json({
       status: 'success',
@@ -28,7 +29,7 @@ exports.getAllTours = async (req, res) => {
       message: error,
     });
   }
-}
+};
 exports.getTour = async (req, res) => {
   try {
     const tour = await Tour.findById(req.params.id);
@@ -100,3 +101,5 @@ exports.deleteTour = async (req, res) => {
     });
   }
 };
+
+
